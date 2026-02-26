@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portail de Formation | CHT Medical School</title>
+    <title>Règlement Intérieur | CHT Medical Services</title>
     <style>
         :root {
             --primary-blue: #0056b3;
@@ -11,157 +11,140 @@
             --medical-red: #d32f2f;
             --dark-grey: #2c3e50;
             --white: #ffffff;
-            --success-green: #2e7d32;
+            --gold: #d4af37;
         }
 
         body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f7f6; color: var(--dark-grey); line-height: 1.6; }
         header { background-color: var(--primary-blue); color: var(--white); padding: 2rem; text-align: center; border-bottom: 5px solid #003d7a; }
-        .logo-cht { font-size: 2.5rem; font-weight: bold; letter-spacing: 2px; }
+        .logo-cht { font-size: 2.2rem; font-weight: bold; letter-spacing: 2px; }
+        
         nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
-        nav a { margin: 0 15px; text-decoration: none; color: var(--primary-blue); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
-        
-        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
-        .card { background: var(--white); border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-blue); }
-        
-        h2 { color: var(--primary-blue); border-bottom: 2px solid var(--secondary-blue); padding-bottom: 10px; margin-top: 0; }
-        .badge { display: inline-block; background: var(--secondary-blue); color: var(--primary-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
-        
-        /* Style du Calculateur */
-        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
-        #result-box { background: var(--secondary-blue); padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; }
-        #glasgow-score { font-size: 3rem; font-weight: bold; color: var(--primary-blue); display: block; }
-        #glasgow-interpretation { font-weight: bold; text-transform: uppercase; }
+        nav a { margin: 0 10px; text-decoration: none; color: var(--primary-blue); font-weight: bold; text-transform: uppercase; font-size: 0.85rem; }
 
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
-        th { background-color: var(--secondary-blue); }
-        .warning { color: var(--medical-red); font-weight: bold; }
-        .footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #777; }
+        .container { max-width: 900px; margin: 20px auto; padding: 20px; }
+        .card { background: var(--white); border-radius: 8px; padding: 30px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-top: 4px solid var(--primary-blue); }
+        
+        h2 { color: var(--primary-blue); border-bottom: 2px solid var(--secondary-blue); padding-bottom: 10px; text-transform: uppercase; }
+        h3 { color: var(--dark-grey); border-left: 4px solid var(--primary-blue); padding-left: 10px; margin-top: 25px; }
+
+        .oath { font-style: italic; background: #f9f9f9; padding: 20px; border-radius: 5px; border: 1px solid #ddd; color: #444; font-size: 0.95rem; }
+        
+        .rule-list { list-style: none; padding: 0; }
+        .rule-list li { margin-bottom: 12px; padding-left: 25px; position: relative; }
+        .rule-list li::before { content: "•"; color: var(--primary-blue); font-weight: bold; position: absolute; left: 0; font-size: 1.2rem; }
+
+        .warning-box { background: #fff3e0; border-left: 5px solid #ff9800; padding: 15px; margin: 20px 0; font-weight: bold; }
+        .danger-box { background: #ffebee; border-left: 5px solid var(--medical-red); padding: 15px; margin: 20px 0; color: var(--medical-red); }
+
+        .footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #777; background: #eee; }
+        
+        @media (max-width: 600px) { nav a { display: block; margin: 10px 0; } }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="logo-cht">✚ CENTRE HOSPITALIER TERRITORIAL</div>
-    <p>Portail Officiel de Formation pour Internes et Ambulanciers</p>
+    <div class="logo-cht">✚ EMERGENCY MEDICAL SERVICES</div>
+    <p>RÈGLEMENT INTÉRIEUR OFFICIEL DU CHT [cite: 3]</p>
 </header>
 
 <nav>
-    <a href="#accueil">Accueil</a>
-    <a href="#calculateur">Outils d'Examen</a>
-    <a href="#protocoles">Protocoles</a>
-    <a href="#lexique">Lexique</a>
+    <a href="#serment">Serment</a>
+    <a href="#service">Prise de Service</a>
+    <a href="#interventions">Interventions</a>
+    <a href="#vehicules">Véhicules</a>
+    <a href="#illegale">L'Illégale</a>
+    <a href="#sanctions">Sanctions</a>
 </nav>
 
 <div class="container">
 
-    <section id="accueil">
-        <div class="card">
-            <h2>Note de la Direction</h2>
-            <p>Bienvenue au CHT. Ce portail contient les directives strictes de la Directrice. Toute recrue ne maîtrisant pas ces fondamentaux sera immédiatement révoquée.</p>
-            <p class="warning">RAPPEL : Le port des gants est obligatoire dès la descente du véhicule.</p>
+    <div class="card">
+        <h2>Préambule</h2>
+        <p>Ce document définit les règles de conduite au sein du Centre Hospitalier Territorial (CHT). Il garantit le respect de l'institution, des patients et des collaborateurs[cite: 6].</p>
+        <div class="warning-box">
+            Toute violation du présent règlement entraînera des sanctions pouvant aller jusqu'au licenciement immédiat[cite: 7].
+        </div>
+    </div>
+
+    <section id="serment" class="card">
+        <h2>1. Serment d'Hippocrate</h2>
+        <div class="oath">
+            <p>"Au moment d'être admis(e) à exercer la médecine, je promets et je jure d'être fidèle aux lois de l'honneur et de la probité." [cite: 22]</p>
+            <p>"Mon premier souci sera de rétablir, de préserver ou de promouvoir la santé... Je respecterai toutes les personnes, leur autonomie et leur volonté, sans aucune discrimination." [cite: 23, 24]</p>
+            <p>"Je ne me laisserai pas influencer par la soif du gain ou la recherche de la gloire... Que les hommes et mes confrères m'accordent leur estime si je suis fidèle à mes promesses." [cite: 30, 38]</p>
         </div>
     </section>
 
-    <section id="calculateur">
-        <div class="card" style="border-left-color: var(--success-green);">
-            <span class="badge" style="background: #e8f5e9; color: var(--success-green);">OUTIL DE TERRAIN</span>
-            <h2>Calculateur de Score de Glasgow</h2>
-            <p>Utilisez cet outil pour évaluer l'état neurologique du patient.</p>
-            
-            <div class="calc-grid">
-                <div>
-                    <label>Ouverture des yeux :</label>
-                    <select id="eyes" onchange="calculateGlasgow()">
-                        <option value="4">Spontanée (4)</option>
-                        <option value="3">À la demande (3)</option>
-                        <option value="2">À la douleur (2)</option>
-                        <option value="1">Aucune (1)</option>
-                    </select>
-                </div>
-                <div>
-                    <label>Réponse verbale :</label>
-                    <select id="verbal" onchange="calculateGlasgow()">
-                        <option value="5">Orientée (5)</option>
-                        <option value="4">Confuse (4)</option>
-                        <option value="3">Inappropriée (3)</option>
-                        <option value="2">Incompréhensible (2)</option>
-                        <option value="1">Aucune (1)</option>
-                    </select>
-                </div>
-                <div style="grid-column: span 2;">
-                    <label>Réponse motrice :</label>
-                    <select id="motor" onchange="calculateGlasgow()">
-                        <option value="6">Aux ordres (6)</option>
-                        <option value="5">Orientée à la douleur (5)</option>
-                        <option value="4">Évitement à la douleur (4)</option>
-                        <option value="3">Flexion stéréotypée (3)</option>
-                        <option value="2">Extension stéréotypée (2)</option>
-                        <option value="1">Aucune (1)</option>
-                    </select>
-                </div>
-            </div>
-
-            <div id="result-box">
-                <span id="glasgow-score">15</span>
-                <p id="glasgow-interpretation">Conscience Normale</p>
-            </div>
-        </div>
+    <section id="service" class="card">
+        <h2>2. Prise de Service & Tenues</h2>
+        <h3>Protocole de Prise de Poste</h3>
+        <ul class="rule-list">
+            <li><strong>Radio & Annonce :</strong> Obligation d'allumer sa radio et d'annoncer sa prise de service[cite: 53].</li>
+            <li><strong>Intranet :</strong> Se déclarer en "dispatch" en indiquant son emplacement (Hôpital/Ambulance)[cite: 55].</li>
+            <li><strong>Pauses :</strong> Limitées à 15 minutes. Au-delà, le service doit être quitté[cite: 56].</li>
+        </ul>
+        <h3>Codes Vestimentaires</h3>
+        <ul class="rule-list">
+            <li>Port obligatoire de la tenue correspondant strictement à votre grade[cite: 51].</li>
+            <li>Pas de couvre-chefs ni de lunettes de soleil en service[cite: 50].</li>
+            <li>Tatouages et maquillages excessifs sur le visage interdits[cite: 49].</li>
+        </ul>
     </section>
 
-    <section id="protocoles">
-        <div class="card">
-            <span class="badge">URGENCES</span>
-            <h2>Protocoles de Diagnostic Rapide</h2>
-            <table>
-                <thead>
-                    <tr><th>Pathologie</th><th>Geste Immédiat</th><th>Commande RP</th></tr>
-                </thead>
-                <tbody>
-                    <tr><td>Arrêt Cardiaque</td><td>Massage + DSA</td><td>/me tente une réanimation</td></tr>
-                    <tr><td>Hémorragie jambe</td><td>Garrot tactique</td><td>/me pose un garrot à la cuisse</td></tr>
-                    <tr><td>Inconscience</td><td>Oxygène + PLS</td><td>/do Le patient respire-t-il ?</td></tr>
-                </tbody>
-            </table>
-        </div>
+    <section id="interventions" class="card">
+        <h2>3. Interventions et Soins</h2>
+        <ul class="rule-list">
+            <li><strong>Lieu des soins :</strong> Obligation d'utiliser les lits en salle de soin. Interdiction de soigner dans les couloirs ou devant l'hôpital[cite: 69, 70].</li>
+            <li><strong>RP Médical :</strong> Obligation d'annoncer vocalement vos actions ou d'utiliser la commande <code>/me</code>[cite: 72].</li>
+            <li><strong>Zones de combat :</strong> Attendre l'arrêt des tirs. Si la police est là, attendre impérativement leur signal[cite: 77, 78].</li>
+            <li><strong>Patrouilles :</strong> Autorisées uniquement si l'activité à l'hôpital est nulle[cite: 88].</li>
+        </ul>
     </section>
 
-    <section id="lexique">
-        <div class="card">
-            <span class="badge">TERMINOLOGIE</span>
-            <h2>Le Lingo du CHT</h2>
-            <p><i>Maîtrisez ces termes pour vos rapports médicaux :</i></p>
-            <ul>
-                <li><strong>Ischémie :</strong> Arrêt de l'irrigation sanguine.</li>
-                <li><strong>Mydriase :</strong> Pupilles dilatées (signe neurologique grave).</li>
-                <li><strong>Bradycardie :</strong> Pouls anormalement lent.</li>
-            </ul>
-        </div>
+    <section id="vehicules" class="card">
+        <h2>4. Gestion des Véhicules</h2>
+        <ul class="rule-list">
+            <li><strong>Usage :</strong> Les ambulances sont des véhicules de service, pas de course. Conduite cohérente exigée[cite: 106, 107].</li>
+            <li><strong>Rangement :</strong> Après intervention, ranger le véhicule devant le parking des urgences pour les départs rapides[cite: 99].</li>
+            <li><strong>Équipage :</strong> Maximum deux personnes par véhicule, sauf autorisation supérieure[cite: 101].</li>
+            <li><strong>Hélicoptère :</strong> Réservé au soutien en cas de flux d'appels très important[cite: 109, 110].</li>
+        </ul>
     </section>
+
+    <section id="illegale" class="card">
+        <span class="badge" style="background:var(--medical-red); color:white; padding:5px 10px; border-radius:4px;">STRICTEMENT INTERDIT</span>
+        <h2>5. Probité et Légalité</h2>
+        <div class="danger-box">
+            Toute relation non-professionnelle avec des organisations criminelles (Gangs/Orgas) entraînera un licenciement et une mise sur liste noire (Blacklist)[cite: 129, 131].
+        </div>
+        <ul class="rule-list">
+            <li><strong>Armes :</strong> Interdiction formelle de porter une arme en service, même avec un permis (PPA)[cite: 134].</li>
+            <li><strong>Casier :</strong> Le personnel doit posséder un casier judiciaire vierge[cite: 137].</li>
+            <li><strong>Complicité :</strong> Interdiction d'aider quiconque à échapper aux forces de l'ordre[cite: 138].</li>
+        </ul>
+    </section>
+
+    <section id="sanctions" class="card">
+        <h2>6. Règles Générales & Discipline</h2>
+        <ul class="rule-list">
+            <li><strong>Respect :</strong> Aucun manque de respect (collègues ou citoyens) ne sera toléré. Le harcèlement est proscrit[cite: 163, 168].</li>
+            <li><strong>Refus de soin :</strong> Il est strictement interdit de refuser de soigner quelqu'un, peu importe le prétexte[cite: 150].</li>
+            <li><strong>Heures de service :</strong> Vous devez impérativement enregistrer vos heures. Toute fraude entraînera la suppression du salaire[cite: 171, 172].</li>
+            <li><strong>Hiérarchie :</strong> Le respect des ordres des hauts-gradés est obligatoire[cite: 157].</li>
+        </ul>
+    </section>
+
+    <div class="card" style="text-align: center; border-top: 4px solid var(--gold);">
+        <p><i>"Votre travail a un impact direct sur la vie et le bien-être des autres."</i> [cite: 184]</p>
+        <p><strong>LA DIRECTION DU CHT</strong> [cite: 189]</p>
+    </div>
 
 </div>
 
-<script>
-    function calculateGlasgow() {
-        const eyes = parseInt(document.getElementById('eyes').value);
-        const verbal = parseInt(document.getElementById('verbal').value);
-        const motor = parseInt(document.getElementById('motor').value);
-        const score = eyes + verbal + motor;
-        
-        const scoreEl = document.getElementById('glasgow-score');
-        const interpEl = document.getElementById('glasgow-interpretation');
-        
-        scoreEl.innerText = score;
-        
-        if (score >= 13) { interpEl.innerText = "Conscience Normale / État Léger"; interpEl.style.color = "green"; }
-        else if (score >= 9) { interpEl.innerText = "Somnolence / État Modéré"; interpEl.style.color = "orange"; }
-        else { interpEl.innerText = "Coma / État Grave"; interpEl.style.color = "red"; }
-    }
-</script>
-
 <div class="footer">
-    &copy; 2026 CHT Medical School - Document Confidentiel - Directrice : [47 - Angel AIVAZOVSKI]
+    &copy; 2026 CHT Medical Services - Document Confidentiel. [cite: 190] <br>
+    Le règlement peut être modifié à tout moment par la direction. [cite: 187]
 </div>
 
 </body>
