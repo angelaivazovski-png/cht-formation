@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursus de Formation | CHT Academy</title>
+    <style>
+        :root { --primary-blue: #0056b3; --secondary-blue: #e3f2fd; --medical-red: #d32f2f; --dark-grey: #2c3e50; --white: #ffffff; --success-green: #2e7d32; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f7f6; color: var(--dark-grey); line-height: 1.6; }
+        header { background-color: var(--primary-blue); color: var(--white); padding: 2rem; text-align: center; border-bottom: 5px solid #003d7a; }
+        .logo-cht { font-size: 2.2rem; font-weight: bold; letter-spacing: 2px; }
+        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--primary-blue); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
+        .card { background: var(--white); border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-blue); }
+        h2 { color: var(--primary-blue); border-bottom: 2px solid var(--secondary-blue); padding-bottom: 10px; margin-top: 0; }
+        .badge { display: inline-block; background: var(--secondary-blue); color: var(--primary-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        #result-box { background: var(--secondary-blue); padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; }
+        #glasgow-score { font-size: 3rem; font-weight: bold; color: var(--primary-blue); display: block; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--secondary-blue); }
+        .footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #777; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-cht">✚ CHT MEDICAL ACADEMY</div>
+    <p>Guide de Formation Technique - Internes & Ambulanciers</p>
+</header>
+
+<nav>
+    <a href="index.html">Règlement Intérieur</a>
+    <a href="#calculateur">Outil Glasgow</a>
+    <a href="#protocoles">Protocoles de Soins</a>
+</nav>
+
+<div class="container">
+    <section id="calculateur">
+        <div class="card" style="border-left-color: var(--success-green);">
+            <span class="badge" style="background: #e8f5e9; color: var(--success-green);">FORMATION PRATIQUE</span>
+            <h2>Calculateur de Score de Glasgow</h2>
+            <div class="calc-grid">
+                <div><label>Yeux :</label><select id="eyes" onchange="calc()"><option value="4">Spontanée (4)</option><option value="3">Demande (3)</option><option value="2">Douleur (2)</option><option value="1">Aucune (1)</option></select></div>
+                <div><label>Verbal :</label><select id="verbal" onchange="calc()"><option value="5">Orientée (5)</option><option value="4">Confuse (4)</option><option value="3">Inappropriée (3)</option><option value="2">Incompréhensible (2)</option><option value="1">Aucune (1)</option></select></div>
+                <div style="grid-column: span 2;"><label>Moteur :</label><select id="motor" onchange="calc()"><option value="6">Ordres (6)</option><option value="5">Douleur (5)</option><option value="4">Évitement (4)</option><option value="3">Flexion (3)</option><option value="2">Extension (2)</option><option value="1">Aucune (1)</option></select></div>
+            </div>
+            <div id="result-box"><span id="glasgow-score">15</span><p id="interp">Conscience Normale</p></div>
+        </div>
+    </section>
+
+    <section id="protocoles">
+        <div class="card">
+            <h2>Protocoles Médicaux RP</h2>
+            <table>
+                <thead><tr><th>Situation</th><th>Action RP</th><th>Lingo Technique</th></tr></thead>
+                <tbody>
+                    <tr><td>Coma</td><td>Massage + DSA</td><td>Score de Glasgow < 8</td></tr>
+                    <tr><td>Plaie par balle</td><td>Garrot + Pression</td><td>Hémorragie artérielle</td></tr>
+                    <tr><td>AVP (Accident)</td><td>Collier cervical</td><td>Trauma médullaire</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</div>
+
+<script>
+    function calc() {
+        const s = parseInt(document.getElementById('eyes').value) + parseInt(document.getElementById('verbal').value) + parseInt(document.getElementById('motor').value);
+        document.getElementById('glasgow-score').innerText = s;
+        const i = document.getElementById('interp');
+        if(s >= 13) { i.innerText = "État Léger"; i.style.color = "green"; }
+        else if(s >= 9) { i.innerText = "État Modéré"; i.style.color = "orange"; }
+        else { i.innerText = "État Grave (Coma)"; i.style.color = "red"; }
+    }
+</script>
+
+<div class="footer">&copy; 2026 CHT Academy - Document de Formation</div>
+</body>
+</html>
