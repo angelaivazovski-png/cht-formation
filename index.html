@@ -11,125 +11,33 @@
             --medical-red: #d32f2f;
             --dark-grey: #2c3e50;
             --white: #ffffff;
+            --success-green: #2e7d32;
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            background-color: #f4f7f6;
-            color: var(--dark-grey);
-        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; background-color: #f4f7f6; color: var(--dark-grey); line-height: 1.6; }
+        header { background-color: var(--primary-blue); color: var(--white); padding: 2rem; text-align: center; border-bottom: 5px solid #003d7a; }
+        .logo-cht { font-size: 2.5rem; font-weight: bold; letter-spacing: 2px; }
+        nav { background: var(--white); padding: 1rem; text-align: center; position: sticky; top: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.1); z-index: 100; }
+        nav a { margin: 0 15px; text-decoration: none; color: var(--primary-blue); font-weight: bold; text-transform: uppercase; font-size: 0.9rem; }
+        
+        .container { max-width: 1000px; margin: 20px auto; padding: 20px; }
+        .card { background: var(--white); border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); border-left: 5px solid var(--primary-blue); }
+        
+        h2 { color: var(--primary-blue); border-bottom: 2px solid var(--secondary-blue); padding-bottom: 10px; margin-top: 0; }
+        .badge { display: inline-block; background: var(--secondary-blue); color: var(--primary-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        
+        /* Style du Calculateur */
+        .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        select { width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ccc; font-size: 1rem; }
+        #result-box { background: var(--secondary-blue); padding: 20px; border-radius: 8px; text-align: center; margin-top: 20px; }
+        #glasgow-score { font-size: 3rem; font-weight: bold; color: var(--primary-blue); display: block; }
+        #glasgow-interpretation { font-weight: bold; text-transform: uppercase; }
 
-        header {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            padding: 2rem;
-            text-align: center;
-            border-bottom: 5px solid #003d7a;
-        }
-
-        .logo-cht {
-            font-size: 2.5rem;
-            font-weight: bold;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
-
-        nav {
-            background: var(--white);
-            padding: 1rem;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: var(--primary-blue);
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: var(--white);
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-left: 5px solid var(--primary-blue);
-        }
-
-        h2 {
-            color: var(--primary-blue);
-            border-bottom: 2px solid var(--secondary-blue);
-            padding-bottom: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--secondary-blue);
-            color: var(--primary-blue);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .protocol-step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .step-number {
-            background: var(--primary-blue);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-right: 15px;
-            flex-shrink: 0;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 15px;
-        }
-
-        th, td {
-            text-align: left;
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: var(--secondary-blue);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: #777;
-        }
-
-        .warning {
-            color: var(--medical-red);
-            font-weight: bold;
-        }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #ddd; }
+        th { background-color: var(--secondary-blue); }
+        .warning { color: var(--medical-red); font-weight: bold; }
+        .footer { text-align: center; padding: 40px; font-size: 0.8rem; color: #777; }
     </style>
 </head>
 <body>
@@ -141,9 +49,9 @@
 
 <nav>
     <a href="#accueil">Accueil</a>
+    <a href="#calculateur">Outils d'Examen</a>
     <a href="#protocoles">Protocoles</a>
     <a href="#lexique">Lexique</a>
-    <a href="#examens">Examens</a>
 </nav>
 
 <div class="container">
@@ -151,79 +59,109 @@
     <section id="accueil">
         <div class="card">
             <h2>Note de la Direction</h2>
-            <p>Bienvenue au CHT. Ce portail contient les directives strictes de la Directrice. Toute recrue ne maîtrisant pas ces fondamentaux sera immédiatement révoquée de ses fonctions de terrain.</p>
+            <p>Bienvenue au CHT. Ce portail contient les directives strictes de la Directrice. Toute recrue ne maîtrisant pas ces fondamentaux sera immédiatement révoquée.</p>
             <p class="warning">RAPPEL : Le port des gants est obligatoire dès la descente du véhicule.</p>
+        </div>
+    </section>
+
+    <section id="calculateur">
+        <div class="card" style="border-left-color: var(--success-green);">
+            <span class="badge" style="background: #e8f5e9; color: var(--success-green);">OUTIL DE TERRAIN</span>
+            <h2>Calculateur de Score de Glasgow</h2>
+            <p>Utilisez cet outil pour évaluer l'état neurologique du patient.</p>
+            
+            <div class="calc-grid">
+                <div>
+                    <label>Ouverture des yeux :</label>
+                    <select id="eyes" onchange="calculateGlasgow()">
+                        <option value="4">Spontanée (4)</option>
+                        <option value="3">À la demande (3)</option>
+                        <option value="2">À la douleur (2)</option>
+                        <option value="1">Aucune (1)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>Réponse verbale :</label>
+                    <select id="verbal" onchange="calculateGlasgow()">
+                        <option value="5">Orientée (5)</option>
+                        <option value="4">Confuse (4)</option>
+                        <option value="3">Inappropriée (3)</option>
+                        <option value="2">Incompréhensible (2)</option>
+                        <option value="1">Aucune (1)</option>
+                    </select>
+                </div>
+                <div style="grid-column: span 2;">
+                    <label>Réponse motrice :</label>
+                    <select id="motor" onchange="calculateGlasgow()">
+                        <option value="6">Aux ordres (6)</option>
+                        <option value="5">Orientée à la douleur (5)</option>
+                        <option value="4">Évitement à la douleur (4)</option>
+                        <option value="3">Flexion stéréotypée (3)</option>
+                        <option value="2">Extension stéréotypée (2)</option>
+                        <option value="1">Aucune (1)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="result-box">
+                <span id="glasgow-score">15</span>
+                <p id="glasgow-interpretation">Conscience Normale</p>
+            </div>
         </div>
     </section>
 
     <section id="protocoles">
         <div class="card">
-            <span class="badge">PROCÉDURES D'URGENCE</span>
-            <h2>Protocole d'Arrivée</h2>
-            <div class="protocol-step">
-                <div class="step-number">1</div>
-                <div><strong>Enregistrement :</strong> Badgeage et vérification de la tenue réglementaire.</div>
-            </div>
-            <div class="protocol-step">
-                <div class="step-number">2</div>
-                <div><strong>Communications :</strong> Passage sur Fréquence Radio 11 (Radio-Interne).</div>
-            </div>
-            <div class="protocol-step">
-                <div class="step-number">3</div>
-                <div><strong>Inventaire :</strong> Contrôle des stocks de morphine, bandages et DSA.</div>
-            </div>
-        </div>
-    </section>
-
-    <section id="lexique">
-        <div class="card">
-            <span class="badge">LINGO MÉDICAL</span>
-            <h2>Terminologie Standardisée</h2>
+            <span class="badge">URGENCES</span>
+            <h2>Protocoles de Diagnostic Rapide</h2>
             <table>
                 <thead>
-                    <tr>
-                        <th>Terme</th>
-                        <th>Définition</th>
-                    </tr>
+                    <tr><th>Pathologie</th><th>Geste Immédiat</th><th>Commande RP</th></tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><strong>Score de Glasgow</strong></td>
-                        <td>Échelle de 3 à 15 pour évaluer l'état de conscience.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Ischémie</strong></td>
-                        <td>Diminution de l'apport sanguin dans un organe.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Hémorragie Massive</strong></td>
-                        <td>Perte de sang critique nécessitant un garrot.</td>
-                    </tr>
-                    <tr>
-                        <td><strong>Sédation</strong></td>
-                        <td>Administration de calmants avant une intervention lourde.</td>
-                    </tr>
+                    <tr><td>Arrêt Cardiaque</td><td>Massage + DSA</td><td>/me tente une réanimation</td></tr>
+                    <tr><td>Hémorragie jambe</td><td>Garrot tactique</td><td>/me pose un garrot à la cuisse</td></tr>
+                    <tr><td>Inconscience</td><td>Oxygène + PLS</td><td>/do Le patient respire-t-il ?</td></tr>
                 </tbody>
             </table>
         </div>
     </section>
 
-    <section id="examens">
+    <section id="lexique">
         <div class="card">
-            <span class="badge">ACADÉMIE</span>
-            <h2>Validation des Compétences</h2>
-            <p>Pour valider votre cursus, vous devez réussir les deux simulations suivantes :</p>
+            <span class="badge">TERMINOLOGIE</span>
+            <h2>Le Lingo du CHT</h2>
+            <p><i>Maîtrisez ces termes pour vos rapports médicaux :</i></p>
             <ul>
-                <li><strong>Simulation A :</strong> Arrêt Cardio-Respiratoire (Utilisation du DSA).</li>
-                <li><strong>Simulation B :</strong> Blessure par arme à feu (Gestion de l'hémorragie).</li>
+                <li><strong>Ischémie :</strong> Arrêt de l'irrigation sanguine.</li>
+                <li><strong>Mydriase :</strong> Pupilles dilatées (signe neurologique grave).</li>
+                <li><strong>Bradycardie :</strong> Pouls anormalement lent.</li>
             </ul>
         </div>
     </section>
 
 </div>
 
+<script>
+    function calculateGlasgow() {
+        const eyes = parseInt(document.getElementById('eyes').value);
+        const verbal = parseInt(document.getElementById('verbal').value);
+        const motor = parseInt(document.getElementById('motor').value);
+        const score = eyes + verbal + motor;
+        
+        const scoreEl = document.getElementById('glasgow-score');
+        const interpEl = document.getElementById('glasgow-interpretation');
+        
+        scoreEl.innerText = score;
+        
+        if (score >= 13) { interpEl.innerText = "Conscience Normale / État Léger"; interpEl.style.color = "green"; }
+        else if (score >= 9) { interpEl.innerText = "Somnolence / État Modéré"; interpEl.style.color = "orange"; }
+        else { interpEl.innerText = "Coma / État Grave"; interpEl.style.color = "red"; }
+    }
+</script>
+
 <div class="footer">
-    &copy; 2026 CHT Medical School - Document Confidentiel - Usage Interne Uniquement
+    &copy; 2026 CHT Medical School - Document Confidentiel - Directrice : [47 - Angel AIVAZOVSKI]
 </div>
 
 </body>
