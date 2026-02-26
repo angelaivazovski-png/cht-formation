@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portail de Formation | CHT Medical School</title>
+    <style>
+        :root {
+            --primary-blue: #0056b3;
+            --secondary-blue: #e3f2fd;
+            --medical-red: #d32f2f;
+            --dark-grey: #2c3e50;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f7f6;
+            color: var(--dark-grey);
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 5px solid #003d7a;
+        }
+
+        .logo-cht {
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            background: var(--white);
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: var(--primary-blue);
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-left: 5px solid var(--primary-blue);
+        }
+
+        h2 {
+            color: var(--primary-blue);
+            border-bottom: 2px solid var(--secondary-blue);
+            padding-bottom: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: var(--secondary-blue);
+            color: var(--primary-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .protocol-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .step-number {
+            background: var(--primary-blue);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: var(--secondary-blue);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        .warning {
+            color: var(--medical-red);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-cht">✚ CENTRE HOSPITALIER DE TURQUOISE</div>
+    <p>Portail Officiel de Formation pour Internes et Ambulanciers</p>
+</header>
+
+<nav>
+    <a href="#accueil">Accueil</a>
+    <a href="#protocoles">Protocoles</a>
+    <a href="#lexique">Lexique</a>
+    <a href="#examens">Examens</a>
+</nav>
+
+<div class="container">
+
+    <section id="accueil">
+        <div class="card">
+            <h2>Note de la Direction</h2>
+            <p>Bienvenue au CHT. Ce portail contient les directives strictes de la Directrice. Toute recrue ne maîtrisant pas ces fondamentaux sera immédiatement révoquée de ses fonctions de terrain.</p>
+            <p class="warning">RAPPEL : Le port des gants est obligatoire dès la descente du véhicule.</p>
+        </div>
+    </section>
+
+    <section id="protocoles">
+        <div class="card">
+            <span class="badge">PROCÉDURES D'URGENCE</span>
+            <h2>Protocole d'Arrivée</h2>
+            <div class="protocol-step">
+                <div class="step-number">1</div>
+                <div><strong>Enregistrement :</strong> Badgeage et vérification de la tenue réglementaire.</div>
+            </div>
+            <div class="protocol-step">
+                <div class="step-number">2</div>
+                <div><strong>Communications :</strong> Passage sur Fréquence Radio 2 (Radio-Interne).</div>
+            </div>
+            <div class="protocol-step">
+                <div class="step-number">3</div>
+                <div><strong>Inventaire :</strong> Contrôle des stocks de morphine, bandages et DSA.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lexique">
+        <div class="card">
+            <span class="badge">LINGO MÉDICAL</span>
+            <h2>Terminologie Standardisée</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Terme</th>
+                        <th>Définition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Score de Glasgow</strong></td>
+                        <td>Échelle de 3 à 15 pour évaluer l'état de conscience.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Ischémie</strong></td>
+                        <td>Diminution de l'apport sanguin dans un organe.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Hémorragie Massive</strong></td>
+                        <td>Perte de sang critique nécessitant un garrot.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sédation</strong></td>
+                        <td>Administration de calmants avant une intervention lourde.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <section id="examens">
+        <div class="card">
+            <span class="badge">ACADÉMIE</span>
+            <h2>Validation des Compétences</h2>
+            <p>Pour valider votre cursus, vous devez réussir les deux simulations suivantes :</p>
+            <ul>
+                <li><strong>Simulation A :</strong> Arrêt Cardio-Respiratoire (Utilisation du DSA).</li>
+                <li><strong>Simulation B :</strong> Blessure par arme à feu (Gestion de l'hémorragie).</li>
+            </ul>
+        </div>
+    </section>
+
+</div>
+
+<div class="footer">
+    &copy; 2026 CHT Medical School - Document Confidentiel - Usage Interne Uniquement
+</div>
+
+</body>
+</html>
